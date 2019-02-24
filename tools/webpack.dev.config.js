@@ -7,7 +7,6 @@ module.exports = {
         port: 9000
     },
     devtool: 'source-map',
-    // entry: './src/index.js',
     entry: path.join(__dirname, '..', 'src/index.js'),
     output: {
         path: path.resolve(__dirname, '..', 'build'),
