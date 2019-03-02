@@ -7,7 +7,7 @@ module.exports = {
         port: 9000
     },
     devtool: 'source-map',
-    entry: path.join(__dirname, '..', 'src/index.js'),
+    entry: path.resolve(__dirname, '..', 'src/index.js'),
     output: {
         path: path.resolve(__dirname, '..', 'build'),
         filename: 'app.bundle.js'
@@ -17,7 +17,10 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                resolve: {
+                    extensions: ['.js', '.jsx', '.css'],
+                }
             },
             {
                 test: /\.css$/,

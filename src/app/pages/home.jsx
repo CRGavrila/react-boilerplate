@@ -1,11 +1,13 @@
+import React, { Component } from 'react';
+
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = { isHere: true }
     }
-    render() { 
+    render() {
         return ( <div>Home</div> );
     }
 }
- 
+
 export default HomePage;

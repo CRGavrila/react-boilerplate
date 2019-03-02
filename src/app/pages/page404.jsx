@@ -1,7 +1,9 @@
+import React, { Component } from 'react';
+
 class Page404 extends Component {
-    render() { 
+    render() {
         return ( <div>Not Found</div> );
     }
 }
- 
+
 export default Page404;
