@@ -6,11 +6,12 @@
                 "not dead",
                 "not < 2%",
             ],
-            "useBuiltIns": "entry"
+            "useBuiltIns": "entry",
         }],
         "@babel/preset-react"
     ],
     "plugins": [
         "react-hot-loader/babel",
+        "@babel/plugin-proposal-class-properties",
     ]
 }

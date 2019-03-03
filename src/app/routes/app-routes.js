@@ -1,4 +1,4 @@
-import { HomePage, Page404 } from '../pages';
+import { HomePage, SecretPage, Page404 } from '../pages';
 
 const AppRoutes = [
     {
@@ -6,20 +6,42 @@ const AppRoutes = [
         type: '',
         route: {
             path: '/',
-            exact: false,
+            exact: true,
             auth: false,
             component: HomePage,
         },
         tags: ['home', 'index'],
     },
     {
+        name: 'Hello Page',
+        type: '',
+        route: {
+            path: '/hello',
+            exact: true,
+            auth: false,
+            component: HomePage,
+        },
+        tags: ['hello'],
+    },
+    {
+        name: 'Auth Page',
+        type: '',
+        route: {
+            path: '/auth',
+            exact: true,
+            auth: true,
+            component: SecretPage,
+        },
+        tags: ['Auth'],
+    },
+    {
         name: 'Page 404',
         type: '',
         tags: ['404', 'undefined'],
         route: {
-            path: '/',
-            exact: false,
-            auth: false,
+            // path: '/',
+            // exact: false,
+            // auth: false,
             component: Page404,
         },
     }
