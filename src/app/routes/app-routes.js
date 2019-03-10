@@ -1,4 +1,9 @@
-import { HomePage, SecretPage, Page404 } from '../pages';
+import {
+    HomePage,
+    HelloPage,
+    SecretPage,
+    Page404,
+} from '../pages';
 
 const AppRoutes = [
     {
@@ -19,7 +24,7 @@ const AppRoutes = [
             path: '/hello',
             exact: true,
             auth: false,
-            component: HomePage,
+            component: HelloPage,
         },
         tags: ['hello'],
     },
