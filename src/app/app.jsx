@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +11,8 @@ import {
   AppRoutes,
   AuthRoute
 } from './routes';
+
+import { MainLayout } from './layouts';
 
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
                 auth,
                 exact,
                 path,
+                layout,
                 component,
               } = route;
 
@@ -31,6 +34,10 @@ class App extends Component {
 
               if (auth) {
                 return <AuthRoute key={uniqueIdKey} path={path} exact={exact} component={component} />
+              }
+
+              if (layout) {
+                return <MainLayout key={uniqueIdKey} route={route} />
               }
 
               return <Route key={uniqueIdKey} path={path} exact={exact} component={component} />
@@ -42,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default hot(App);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 class SecretPage extends Component {
+    static displayName = 'SecretPage';
+    
     constructor(props) {
         super(props);
         this.state = { isHere: true }

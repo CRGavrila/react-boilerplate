@@ -1,4 +1,4 @@
-import HomePage from './home/home';
+import HomePage from './home/home.page';
 import HelloPage from './hello/hello.page';
 import SecretPage from './secret/secret';
 
