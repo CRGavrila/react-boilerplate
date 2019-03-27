@@ -6,10 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressPlugin = new webpack.ProgressPlugin();
 
-const { nodeEnv } = require('./webpack.constants');
+const { apiUrl, nodeEnv, srcPath } = require('./webpack.constants');
 
 const HtmlWebpackPluginDev = new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, '..', 'src/index.html'),
+    template: `${srcPath}/index.html`,
     filename: 'index.html',
     minify: false,
     showErrors: true,
@@ -20,14 +20,15 @@ const ExtractTextPluginGlobal = new ExtractTextPlugin({
     disable: nodeEnv !== 'production',
 })
 
-// const DefinePluginDev = new webpack.DefinePlugin({
-//     HtmlWebpackPluginDev
-// })
+const DefinePluginDev = new webpack.DefinePlugin({
+    apiUrl,
+})
 
 module.exports = {
     development: [
         HtmlWebpackPluginDev,
         ExtractTextPluginGlobal,
+        DefinePluginDev,
         ProgressPlugin,
         new webpack.HotModuleReplacementPlugin()
     ],

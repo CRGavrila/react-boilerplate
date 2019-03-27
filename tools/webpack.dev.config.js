@@ -10,6 +10,14 @@ const {
     development: WebpackPluginsDev
 } = require('./webpack.plugins');
 
+// constants
+const {
+    appPath,
+    assetsPath,
+    buildPath,
+    srcPath,
+} = require('./webpack.constants');
+
 module.exports = {
     mode: 'development',
     devServer: {
@@ -19,15 +27,28 @@ module.exports = {
         noInfo: false,
     },
     devtool: 'source-map',
-    entry: path.resolve(__dirname, '..', 'src', 'index.js'),
+    context: __dirname,
+    entry: `${srcPath}/index.js`,
     output: {
-        path: path.resolve(__dirname, '..', 'build'),
+        path: buildPath,
         filename: '[name].[hash].js',
     },
     resolve: {
         modules: [
           'node_modules',
         ],
+
+        alias: {
+            '~app': appPath,
+            '~assets': assetsPath,
+            '~components': `${appPath}/components`,
+            '~constants': `${appPath}/constants`,
+            '~layouts': `${appPath}/layouts`,
+            '~modules': `${appPath}/modules`,
+            '~pages': `${appPath}/pages`,
+            '~utils': `${appPath}/utils`,
+        },
+
         extensions: ['.js', '.jsx', '.css', '.json'],
     },
     module: {
